@@ -28,7 +28,7 @@ class MusicaController extends Controller
                     'titulo' => $musica->titulo . " - " . $musica->artista,
                     'id' => $musica->id
                 ],
-                'ordem' => $musica->formula,
+                'ordem' => $musica->formula ?? [],
                 'partes' => $musica->partes->toArray()
             ];
             return response()->json($retorno, 200);
