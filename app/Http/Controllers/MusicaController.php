@@ -64,9 +64,10 @@ class MusicaController extends Controller
     {
         try {
             $musica = Musica::find($request->musica_id);
+            $cifra = str_replace(' ', '&nbsp;', $request->cifra);
             $musica->partes()->updateExistingPivot(
                 $request->parte_id,
-                ['cifra' => $request->cifra]
+                ['cifra' => $cifra]
             );
             return response()->json('Atualizado com Sucesso!', 200);
         } catch (\Throwable $th) {
