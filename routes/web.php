@@ -32,6 +32,7 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->post('/musicas/nova-secao', ['uses' => 'MusicaController@novaSecao']);
     $router->post('/musicas/atualizar-secao', ['uses' => 'MusicaController@atualizarSecao']);
     $router->post('/musicas/atualizar-ordem', ['uses' => 'MusicaController@atualizarOrdem']);
+    $router->post('/musicas/atualizar-bpm', ['uses' => 'MusicaController@atualizarBpm']);
     $router->post('/musicas/nova', ['uses' => 'MusicaController@nova']);
 
 

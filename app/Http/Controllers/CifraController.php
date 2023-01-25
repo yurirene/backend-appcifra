@@ -16,7 +16,7 @@ class CifraController extends Controller
             $retorno['musica'] = $musica->toArray();
             return response()->json($retorno, 200);
         } catch (\Throwable $th) {
-            return response()->json('Erro ao listar', 500);
+            return response()->json($th->getMessage(), 500);
         }
     }
 

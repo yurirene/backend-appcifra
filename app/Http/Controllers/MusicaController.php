@@ -86,6 +86,17 @@ class MusicaController extends Controller
         }
     }
 
+    public function atualizarBpm(Request $request)
+    {
+        try {
+            $musica = Musica::find($request->musica_id);
+            $musica->update(['bpm' => $request->bpm]);
+            return response()->json('BPM Atualizado com Sucesso!', 200);
+        } catch (\Throwable $th) {
+            return response()->json($th->getMessage(), 500);
+        }
+    }
+
     public function nova(Request $request)
     {
         try {
@@ -116,7 +127,7 @@ class MusicaController extends Controller
     {
         try {
             $musica = Musica::find($id);
-            return response()->json(MusicaService::montar($musica), 200);
+            return MusicaService::baixar($musica);
         } catch (\Throwable $th) {
             return response()->json($th->getMessage(), 500);
         }
