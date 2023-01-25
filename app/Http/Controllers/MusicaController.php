@@ -26,7 +26,8 @@ class MusicaController extends Controller
             $retorno = [
                 'musica' => [
                     'titulo' => $musica->titulo . " - " . $musica->artista,
-                    'id' => $musica->id
+                    'id' => $musica->id,
+                    'bpm' => $musica->bpm
                 ],
                 'ordem' => $musica->formula ?? [],
                 'partes' => $musica->partes->toArray()
